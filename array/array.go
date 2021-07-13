@@ -13,7 +13,7 @@ func main()  {
 
 	var emptyArr [5]int
 	fmt.Printf("Empty: array %v same behavior, filled by zero value \n", emptyArr)
-
+	partOf(arr)
 }
 
 // byValue func show what if array passed by value into func
@@ -30,6 +30,7 @@ func byPointer(arr *[5]int)  {
 	fmt.Printf("Into by pointer func after change: array %v pointer %p \n", arr, &arr)
 }
 
+// outOfRange func show behavior what if referring to the out of range index
 func outOfRange(arr [5]int, idx int)  {
 	defer func() {
 		if r := recover(); r != nil {
@@ -44,4 +45,11 @@ func outOfRange(arr [5]int, idx int)  {
 	for i := 0; i <= idx; i++ {
 		_ = arr[i]
 	}
+}
+
+// partOf func show behavior what if try to apply [:] operation on array
+func partOf(arr [5]int) {
+	fmt.Printf("Passed param has type %T\n", arr)
+	foo := arr[:]
+	fmt.Printf("After [:] param got type %T\n", foo)
 }
