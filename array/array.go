@@ -9,8 +9,11 @@ func main()  {
 	fmt.Printf("After by value func: array %v pointer %p \n", arr, &arr)
 	byPointer(&arr)
 	fmt.Printf("After by pointer func: array %v pointer %p \n", arr, &arr)
-
 	outOfRange(arr, 5)
+
+	var emptyArr [5]int
+	fmt.Printf("Empty: array %v same behavior, filled by zero value \n", emptyArr)
+
 }
 
 // byValue func show what if array passed by value into func
@@ -34,7 +37,7 @@ func outOfRange(arr [5]int, idx int)  {
 			fmt.Println("Recursive call with decremented idx")
 			outOfRange(arr, idx - 1)
 		} else {
-			fmt.Printf("Goes ok when maxIdx < array length")
+			fmt.Println("Goes ok when maxIdx < array length")
 		}
 	}()
 
