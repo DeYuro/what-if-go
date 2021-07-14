@@ -36,7 +36,7 @@ func outOfRange(arr [5]int, idx int)  {
 		if r := recover(); r != nil {
 			fmt.Printf("try to get el from %v with len %d by idx %d: got %v \n", arr, len(arr), idx, r)
 			fmt.Println("Recursive call with decremented idx")
-			outOfRange(arr, idx - 1)
+			outOfRange(arr, len(arr) - 1)
 		} else {
 			fmt.Println("Goes ok when maxIdx < array length")
 		}
