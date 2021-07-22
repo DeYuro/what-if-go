@@ -7,6 +7,8 @@ func main()  {
 	emptyWithCapacity()
 	getElemInEmpty()
 	getElemInEmptyCapacity()
+	appendToEmpty()
+	appendToEmptyWithCapacity()
 }
 // emptySlice show what inside empty slice which created via var
 func empty()  {
@@ -45,4 +47,19 @@ func getElemInEmptyCapacity()  {
 	s := make([]int, 10)
 	fmt.Println("\nGet elem from slice created via `make`")
 	fmt.Println(s[2])
+}
+
+func appendToEmpty()  {
+	var s []int
+	fmt.Println("\nAppend to empty slice created via `var`")
+	describe(append(s, 42))
+}
+
+func appendToEmptyWithCapacity()  {
+	s := make([]int, 10)
+	fmt.Println("\nAppend to empty slice created via `make`")
+	fmt.Println("slice before append")
+	describe(s)
+	fmt.Println("slice after append")
+	describe(append(s, 42))
 }
