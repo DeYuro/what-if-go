@@ -57,7 +57,7 @@ func readFromClosed()  {
 }
 
 func selectRWBuf()  {
-	ch := make(chan int, 1) // non buf chan will block goroutine at send make deadlock
+	ch := make(chan int, 1) // non buf chan will block goroutine at send and make deadlock
 
 	defer close(ch)
 
